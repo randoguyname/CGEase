@@ -1,4 +1,4 @@
-function insertTimetableBreaks(timetable) {
+function insertTimetableBreaks(timetable, proceedFunction, featureIndex) {
     // Style the timetable breaks
     link = document.createElement("link");
     link.href = chrome.runtime.getURL("styles/timetableBreaks.css")
@@ -29,4 +29,6 @@ function insertTimetableBreaks(timetable) {
     time.innerText = "12:30am–1:25am" // The time lunch goes for
     lunchHeader.appendChild(time)
     lunch.appendChild(lunchHeader)
+
+    proceedFunction(featureIndex+1) // Do next feature
 }

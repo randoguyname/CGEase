@@ -49,11 +49,15 @@ function getMusicLessons(lessonsDocument) {
     return lessonsArray;
 }
 
-function showMusicLessons(table, isTimetablePage) {
-    chrome.runtime.sendMessage({"queryType": "url", "url": document.querySelector("a.icon-podcast").href}, function (lessonsHTML) { // send message to background script to get HTML contents of url
+function showMusicLessons(table, isTimetablePage, proceedFunction, featureIndex) {
+    chrome.runtime.sendMessage({"queryType": "url", "url": document.querySelector("a.icon-podcast").href}, function ([lessonsHTML, status]) { // send message to background script to get HTML contents of url
+        if (!status.toString().startsWith("2")) {
+            console.warn(`CGEase: The music timetable document returned error ${status}, and therefore we could not complete the feature "Show Music Lessons".`)
+            proceedFunction(featureIndex+1) // Do the next feature
+            return false
+        }
         parser = new DOMParser();
         lessonsDocument = parser.parseFromString(lessonsHTML, "text/html")
-        
         musicLessons = getMusicLessons(lessonsDocument)
         for (lesson of musicLessons) {
             indicateMudicLesson(table, lesson, isTimetablePage, function (subject) { // Conditional for whether or not it contains the word "Music", then we would not need to show it on the timetable
@@ -63,5 +67,7 @@ function showMusicLessons(table, isTimetablePage) {
                 return true
             })
         }
+
+        proceedFunction(featureIndex+1) // Do the next feature
     })
 }

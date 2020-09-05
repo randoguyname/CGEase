@@ -6,18 +6,25 @@ doRoundTimes = true
 timetable = document.querySelector(".timetable")
 isTimetablePage = document.location.href.toLowerCase().endsWith("timetable")
 
-if (doChangeMusicLogo) {
-    injectNewMusicLogo()
+function proceedFeature(featureIndex) {
+    if (featureIndex >= Object.entries(features).length) {
+        return
+    }
+    
+    feature = features[featureIndex]
+    if (feature[1]) {
+        feature[0](...feature[2], proceedFeature, featureIndex)
+    }
+    else {
+        proceedFeature(featureIndex+1)
+    }
 }
 
-if (doShowMusicLessons) {
-    showMusicLessons(timetable, isTimetablePage)
-}
+features = [
+    [injectNewMusicLogo, doChangeMusicLogo, []],
+    [showMusicLessons, doShowMusicLessons, [timetable, isTimetablePage]],
+    [insertTimetableBreaks, doInsertTimetableBreaks, [timetable]],
+    [roundPeriodTimes, doRoundTimes, [timetable]]
+]
 
-if (doInsertTimetableBreaks) {
-    insertTimetableBreaks(timetable)
-}
-
-if (doRoundTimes) {
-    roundPeriodTimes(timetable)
-}
+proceedFeature(0)
