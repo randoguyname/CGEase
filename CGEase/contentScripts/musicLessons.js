@@ -1,4 +1,4 @@
-function indicateMudicLesson(table, lessonMatrix, isFullTimetable, conditionCallback) {
+function indicateMudicLesson(table, lessonMatrix, isFullTimetable, conditionCallback, newMusicIcon) {
     // Adds icon to top left of lessonMatrix (period, day) cell, indicating it is a music lesson
     // Note: Period 1 is index 1, Monday is index 1
 
@@ -6,7 +6,7 @@ function indicateMudicLesson(table, lessonMatrix, isFullTimetable, conditionCall
         subject = table.tBodies[0].rows[lessonMatrix[0]].cells[lessonMatrix[1]].querySelector("div.timetable-subject"); // get the cell (technically nested div)
         parent = subject.parentElement; // get its parent
     }
-    else { // Not implemented
+    else { 
         day = parseInt(/(\d+)/g.exec(table.parentElement.parentElement.previousElementSibling.innerText).flat().pop())
         if (lessonMatrix[1] != day) {
             return
@@ -21,14 +21,23 @@ function indicateMudicLesson(table, lessonMatrix, isFullTimetable, conditionCall
     }
 
     icon = document.createElement("div");
-    icon.innerHTML = "&#x266b;" // "Music" icon from my addition
+    icon.classList.add("icon-music-lesson")
 
-    icon.style.float = "right"; // top right corner
-    icon.style.color = "hsl(46 96% 65% / 1)" // temporary, but ok
-    icon.style.marginRight = ".75rem" // give a margin
-    icon.style.marginTop = "1rem" // the margin is different because the glyph is weird
-    icon.style.fontFamily = "bravura" // "Music" icon (podcast), same as DEEDs for consistency
-    icon.style.fontSize = "1.2rem" // make slightly larger
+    link = document.createElement("link");
+    link.href = chrome.runtime.getURL("styles/musicLessonIcon.css")
+    link.rel = "stylesheet"
+    link.type= "text/css"
+    document.head.appendChild(link)
+
+    if (newMusicIcon) {
+        icon.innerHTML = "&#x266b;" // Music icon from my addition
+        icon.classList.add("newicon")
+    }
+    else {
+        icon.innerHTML = "&#xe653;" // Default music icon
+    }
+
+    
 
     parent.insertBefore(icon, subject) // add it to the document
 }
@@ -49,7 +58,7 @@ function getMusicLessons(lessonsDocument) {
     return lessonsArray;
 }
 
-function showMusicLessons(table, isTimetablePage, proceedFunction, featureIndex) {
+function showMusicLessons(table, isTimetablePage, newMusicIcon, proceedFunction, featureIndex) {
     chrome.runtime.sendMessage({"queryType": "url", "url": document.querySelector("a.icon-podcast").href}, function ([lessonsHTML, status]) { // send message to background script to get HTML contents of url
         if (!status.toString().startsWith("2")) {
             console.warn(`CGEase: The music timetable document returned error ${status}, and therefore we could not complete the feature "Show Music Lessons".`)
@@ -65,7 +74,7 @@ function showMusicLessons(table, isTimetablePage, proceedFunction, featureIndex)
                     return false
                 }
                 return true
-            })
+            }, newMusicIcon)
         }
 
         proceedFunction(featureIndex+1) // Do the next feature

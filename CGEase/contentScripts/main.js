@@ -5,8 +5,9 @@ doRoundTimes = true
 
 timetable = document.querySelector(".timetable")
 isTimetablePage = document.location.href.toLowerCase().endsWith("timetable")
+hasAnyTimetable = (timetable != null)
 
-function proceedFeature(featureIndex) {
+function proceedFeature(featureIndex) { // forces features to run one after the other
     if (featureIndex >= Object.entries(features).length) {
         return
     }
@@ -22,8 +23,8 @@ function proceedFeature(featureIndex) {
 
 features = [
     [injectNewMusicLogo, doChangeMusicLogo, []],
-    [showMusicLessons, doShowMusicLessons, [timetable, isTimetablePage]],
-    [insertTimetableBreaks, doInsertTimetableBreaks, [timetable]],
+    [showMusicLessons, doShowMusicLessons && hasAnyTimetable, [timetable, isTimetablePage, doChangeMusicLogo]],
+    [insertTimetableBreaks, doInsertTimetableBreaks && isTimetablePage, [timetable]],
     [roundPeriodTimes, doRoundTimes, [timetable]]
 ]
 

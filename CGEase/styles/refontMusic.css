@@ -10,3 +10,11 @@
     position: relative;
     top: .25rem; 
 }
+
+
+.icon-music-lesson.newicon {
+    font-family: "bravura" !important;
+    font-size: 1.2rem !important;
+    margin-right: .75rem !important;
+    margin-top: 1rem !important;
+}
