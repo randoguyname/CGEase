@@ -1,0 +1,45 @@
+{
+    "manifest_version": 2,
+  
+    "name": "CGEase",
+    "description": "Makes the life of CGS students slightly easier",
+    "version": "0.1",
+  
+    "browser_action": {
+        "default_popup": "popup/main.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://deeds.cgs.vic.edu.au/", 
+                "https://deeds.cgs.vic.edu.au/timetable"
+            ],
+            "js": [
+                "generalFunctions/arrayFromTable.js",
+                "generalFunctions/parseText.js",
+                "contentScripts/musicLessons.js",
+                "contentScripts/musicLogo.js",
+                "contentScripts/timetableBreaks.js",
+                "contentScripts/periodTimes.js",
+                "contentScripts/main.js"
+            ],
+            "all_frames":true
+        }
+    ],
+    "background": {
+        "scripts": [
+            "backgroundScripts/musicLessonsBackground.js"
+        ],
+        "persistent": false
+    },
+    "permissions": [
+     "activeTab",
+     "tabs",
+     "storage",
+     "unlimitedStorage",
+     "https://intranet.cgs.vic.edu.au/*"
+     ],
+     "web_accessible_resources": [
+         "*"
+     ]
+  }

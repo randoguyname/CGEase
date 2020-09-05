@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "bravura";
+    src: url('chrome-extension://__MSG_@@extension_id__/styles/bravura.otf');
+}
+
+.icon-podcast:before, .icon-masonry-Component_Homepage_PodcastController:before {
+    content: '\266b' !important;
+    font-family: "bravura" !important;
+    font-size: 1.8rem !important;
+    position: relative;
+    top: .25rem; 
+}
