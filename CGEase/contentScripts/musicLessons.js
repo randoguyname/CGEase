@@ -23,11 +23,7 @@ function indicateMudicLesson(table, lessonMatrix, isFullTimetable, conditionCall
     icon = document.createElement("div");
     icon.classList.add("icon-music-lesson")
 
-    link = document.createElement("link");
-    link.href = chrome.runtime.getURL("styles/musicLessonIcon.css")
-    link.rel = "stylesheet"
-    link.type= "text/css"
-    document.head.appendChild(link)
+    injectCSSFile("styles/musicLessonIcon.css")
 
     if (newMusicIcon) {
         icon.innerHTML = "&#x266b;" // Music icon from my addition

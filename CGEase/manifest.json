@@ -11,19 +11,35 @@
     "content_scripts": [
         {
             "matches": [
-                "https://deeds.cgs.vic.edu.au/", 
-                "https://deeds.cgs.vic.edu.au/timetable"
+                "https://deeds.cgs.vic.edu.au/*"
             ],
             "js": [
                 "generalFunctions/arrayFromTable.js",
                 "generalFunctions/parseText.js",
+                "generalFunctions/injectCSS.js",
+                "generalFunctions/replaceInnerHTML.js",
                 "contentScripts/musicLessons.js",
-                "contentScripts/musicLogo.js",
                 "contentScripts/timetableBreaks.js",
                 "contentScripts/periodTimes.js",
-                "contentScripts/main.js"
+                "contentScripts/mainDEEDS.js"
+            ],
+            "css": [
+                "styles/noDisplay.css"
             ],
             "all_frames":true
+        },
+        {
+            "matches": [
+                "https://schoology.cgs.vic.edu.au/*"
+            ],
+            "run_at": "document_start",
+            "js": [
+                "generalFunctions/injectCSS.js",
+                "contentScripts/mainSchoology.js"
+            ],
+            "css": [
+                "styles/noDisplay.css"
+            ]
         }
     ],
     "background": {

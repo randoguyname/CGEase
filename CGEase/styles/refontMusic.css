@@ -18,3 +18,13 @@
     margin-right: .75rem !important;
     margin-top: 1rem !important;
 }
+
+.second-nav .icon-podcast:before {
+    font-size: 1.4rem !important;
+    top: 0rem !important;
+}
+
+.second-nav .icon-podcast {
+    position: relative;
+    right: .3rem !important;
+}

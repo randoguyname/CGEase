@@ -1,0 +1,6 @@
+body {
+    filter: opacity(0);
+}
+html {
+    background-color: black;
+}

@@ -1,0 +1,90 @@
+html {
+    -webkit-filter: invert(1);
+}
+
+img {
+    -webkit-filter: invert(1); /* double-invert as to revert to it's original state */
+}
+
+li.background-middle {
+    -webkit-filter: invert(1); /* double-invert as to revert to it's original state */
+}
+
+.card-feature-image {
+    -webkit-filter: invert(1); /* double-invert as to revert to it's original state */
+}
+
+.tab-bar {
+    -webkit-filter: invert(1); /* double-invert as to do the thingy thing */
+    background-color: #191b1f !important;
+}
+
+.hybrid-bar {
+    position: sticky;
+    z-index: 2;
+}
+
+#notification-toggle, #notification-toggle-full {
+    background-color: #191b1f;
+}
+
+#notification-toggle-full {
+    -webkit-filter: invert(1);
+}
+
+.tab-bar a:hover {
+    background-color: #494c50 !important;
+}
+
+a.navthis {
+    background-color: #22252a !important;
+}
+
+#profile-drop {
+    -webkit-filter: invert(1); /* triple-invert?? what the f-*/
+}
+
+iframe {
+    -webkit-filter: invert(1); 
+}
+
+input#search-field {
+    -webkit-filter: invert(1);
+}
+
+a#right-menu-dock {
+    -webkit-filter: invert(1);
+}
+
+.mejs__layers, .mejs__controls {
+    -webkit-filter: invert(1);
+}
+
+#left-menu .logo {
+    -webkit-filter: invert(1);
+}
+
+.account-drop.open {
+    -webkit-filter: invert(1);
+}
+
+.results .information-list {
+    -webkit-filter: invert(1);
+}
+
+ul.results.information-list {
+    -webkit-filter: invert(1);
+}
+
+.infoBox {
+    filter: invert(1);
+}
+
+.infoBox [data-intent="ResultsStream"] {
+    filter: invert(1);
+}
+
+.cover-photo {
+    -webkit-filter: invert(1);
+}
+

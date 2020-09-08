@@ -1,5 +1,5 @@
 .icon-music-lesson {
-    color: hsl(46 96% 65% / 1);
+    color: rgba(0,0,0,0.6); /*old: hsl(46 96% 65% / 1);*/
     float: right;
     font-family: 'schoolbox';
     font-size: 1.1rem;
