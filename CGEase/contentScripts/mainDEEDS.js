@@ -31,7 +31,7 @@ features = [
     [injectCSSFile, true, ["styles/doDisplay.css"]],
     [showMusicLessons, doShowMusicLessons && hasAnyTimetable, [timetable, isTimetablePage, doChangeMusicLogo]],
     [insertTimetableBreaks, doInsertTimetableBreaks && isTimetablePage, [timetable]],
-    [roundPeriodTimes, doRoundTimes, [timetable]]
+    [roundPeriodTimes, doRoundTimes && hasAnyTimetable, [timetable]]
 ]
 
 proceedFeature(0)
