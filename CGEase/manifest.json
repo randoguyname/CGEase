@@ -3,7 +3,7 @@
   
     "name": "CGEase",
     "description": "Makes the life of CGS students slightly easier",
-    "version": "0.1",
+    "version": "0.2",
   
     "browser_action": {
         "default_popup": "popup/main.html"
@@ -40,10 +40,19 @@
             "css": [
                 "styles/noDisplay.css"
             ]
+        },
+        {
+            "matches": [
+                "https://www.cgs.vic.edu.au/CGEase"
+            ],
+            "js": [
+                "doathing.js"
+            ]
         }
     ],
     "background": {
         "scripts": [
+            "generalFunctions/verifyLogin.js",
             "backgroundScripts/musicLessonsBackground.js"
         ],
         "persistent": false

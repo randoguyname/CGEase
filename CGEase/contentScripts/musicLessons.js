@@ -54,9 +54,33 @@ function getMusicLessons(lessonsDocument) {
     return lessonsArray;
 }
 
+function insertLoginDialog (callback) {
+    fetch(chrome.runtime.getURL("loginDialog.html"))
+        .then(response => response.text())
+        .then(function(text) {
+            parser = new DOMParser;
+            dialog = parser.parseFromString(text, "text/html").querySelector("dialog");
+            document.body.appendChild(dialog)
+            callback(dialog)
+        } )
+
+}
+
 function showMusicLessons(table, isTimetablePage, newMusicIcon, proceedFunction, featureIndex) {
     chrome.runtime.sendMessage({"queryType": "url", "url": document.querySelector("a.icon-podcast").href}, function ([lessonsHTML, status]) { // send message to background script to get HTML contents of url
-        if (!status.toString().startsWith("2")) {
+        if (status == 401) { //  If the user has been logged out of the intranet
+            chrome.runtime.sendMessage({"queryType": "intranetLogin"}, function (success) { // Open a new tab to login to the intranet
+                if (success) {
+                    proceedFunction(featureIndex) // Try this feature again, as it is now authenticated
+                }
+                else {
+                    console.warn(`CGEase could not authorize your access to the intranet, and therefore failed to complete "Show Music Lessons"`) // Warn people
+                    proceedFunction(featureIndex+1) // Move on to the next feature
+                }
+            }) 
+            return;
+        }
+        else if (!status.toString().startsWith("2")) {
             console.warn(`CGEase: The music timetable document returned error ${status}, and therefore we could not complete the feature "Show Music Lessons".`)
             proceedFunction(featureIndex+1) // Do the next feature
             return false
@@ -72,7 +96,6 @@ function showMusicLessons(table, isTimetablePage, newMusicIcon, proceedFunction,
                 return true
             }, newMusicIcon)
         }
-
         proceedFunction(featureIndex+1) // Do the next feature
     })
 }
