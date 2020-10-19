@@ -66,8 +66,14 @@ function insertLoginDialog (callback) {
 
 }
 
-function showMusicLessons(table, isTimetablePage, newMusicIcon, proceedFunction, featureIndex) {
-    chrome.runtime.sendMessage({"queryType": "url", "url": document.querySelector("a.icon-podcast").href}, function ([lessonsHTML, status]) { // send message to background script to get HTML contents of url
+function showMusicLessons(table, isTimetablePage, newMusicIcon, logMessage, proceedFunction, featureIndex) {
+    chrome.runtime.sendMessage({"queryType": "url", "url": document.querySelector("a.icon-podcast").href}, function (response) { // send message to background script to get HTML contents of url
+        if (!response) {
+            console.warn("Failed to fetch Music Lessons")
+            proceedFunction(featureIndex+1)
+            return
+        }
+        console.log("Obtained music lessons HTML")
         if (status == 401) { //  If the user has been logged out of the intranet
             chrome.runtime.sendMessage({"queryType": "intranetLogin"}, function (success) { // Open a new tab to login to the intranet
                 if (success) {
@@ -95,6 +101,9 @@ function showMusicLessons(table, isTimetablePage, newMusicIcon, proceedFunction,
                 }
                 return true
             }, newMusicIcon)
+        }
+        if (logMessage) {
+            console.log(logMessage)
         }
         proceedFunction(featureIndex+1) // Do the next feature
     })

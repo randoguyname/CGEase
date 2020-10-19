@@ -15,7 +15,6 @@ function proceedFeature(featureIndex) { // forces features to run one after the 
     if (featureIndex >= Object.entries(features).length) {
         return
     }
-    
     feature = features[featureIndex]
     if (feature[1]) {
         feature[0](...feature[2], proceedFeature, featureIndex)
@@ -26,12 +25,12 @@ function proceedFeature(featureIndex) { // forces features to run one after the 
 }
 
 features = [
-    [injectCSSFile, doChangeMusicLogo, ["styles/refontMusic.css"]],
-    [injectCSSFile, doDEEDSDarkMode, ["styles/DEEDSDarkMode.css"]],
-    [injectCSSFile, true, ["styles/doDisplay.css"]],
-    [showMusicLessons, doShowMusicLessons && hasAnyTimetable, [timetable, isTimetablePage, doChangeMusicLogo]],
-    [insertTimetableBreaks, doInsertTimetableBreaks && isTimetablePage, [timetable]],
-    [roundPeriodTimes, doRoundTimes && hasAnyTimetable, [timetable]]
+    [injectCSSFile, doChangeMusicLogo, ["styles/refontMusic.css", "Changed Music Logo"]],
+    [injectCSSFile, doDEEDSDarkMode, ["styles/DEEDSDarkMode.css", "Used DEEDS dark theme"]],
+    [injectCSSFile, true, ["styles/doDisplay.css", "Displayed DEEDS"]],
+    [showMusicLessons, doShowMusicLessons && hasAnyTimetable, [timetable, isTimetablePage, doChangeMusicLogo, "Displayed music lessons"]],
+    [insertTimetableBreaks, doInsertTimetableBreaks && isTimetablePage, [timetable, "Inserted Timetable Breaks"]],
+    [roundPeriodTimes, doRoundTimes && hasAnyTimetable, [timetable, "Rounded Period Times"]]
 ]
 
 proceedFeature(0)

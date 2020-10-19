@@ -4,10 +4,12 @@ function roundTime(text) {
     })
 }
 
-function roundPeriodTimes(timetable, proceedFunction, featureIndex) {
+function roundPeriodTimes(timetable, logMessage, proceedFunction, featureIndex) {
     for (time of timetable.querySelectorAll("time.meta")) {
         time.innerText = roundTime(time.innerText)
     }
-
+    if (logMessage) {
+        console.log(logMessage)
+    }
     proceedFunction(featureIndex+1) // Do next feature
 }

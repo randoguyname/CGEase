@@ -11,6 +11,10 @@ chrome.runtime.onMessage.addListener(
                         console.log(status)
                         sendResponse([text, status])
                     })
+
+                })
+                .catch(function(response){
+                    sendResponse(false)
                 })
             return true;
         }
