@@ -4,6 +4,7 @@ doInsertTimetableBreaks = true
 doRoundTimes = true
 doDEEDSDarkMode = true
 doSchoologyDarkMode = true
+doHighlightToday = true
 
 timetable = document.querySelector(".timetable")
 isTimetablePage = document.location.href.toLowerCase().endsWith("timetable")
@@ -29,6 +30,7 @@ features = [
     [injectCSSFile, doDEEDSDarkMode, ["styles/DEEDSDarkMode.css", "Used DEEDS dark theme"]],
     [injectCSSFile, true, ["styles/doDisplay.css", "Displayed DEEDS"]],
     [showMusicLessons, doShowMusicLessons && hasAnyTimetable, [timetable, isTimetablePage, doChangeMusicLogo, "Displayed music lessons"]],
+    [highlightToday, doHighlightToday && isTimetablePage, ["Highlighted Current Day"]],
     [insertTimetableBreaks, doInsertTimetableBreaks && isTimetablePage, [timetable, "Inserted Timetable Breaks"]],
     [roundPeriodTimes, doRoundTimes && hasAnyTimetable, [timetable, "Rounded Period Times"]]
 ]

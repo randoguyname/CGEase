@@ -21,6 +21,7 @@
                 "contentScripts/musicLessons.js",
                 "contentScripts/timetableBreaks.js",
                 "contentScripts/periodTimes.js",
+                "contentScripts/highlightToday.js",
                 "contentScripts/mainDEEDS.js"
             ],
             "css": [
@@ -47,6 +48,16 @@
             ],
             "js": [
                 "doathing.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://intranet.cgs.vic.edu.au/portal/musictimetable.asp"
+            ],
+            "js": [
+                "generalFunctions/arrayFromTable.js",
+                "generalFunctions/parseText.js",
+                "contentScripts/musicLessonsPage.js"
             ]
         }
     ],

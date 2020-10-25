@@ -1,0 +1,3 @@
+.timetable>tbody>tr>:nth-child(5) {
+    filter: brightness(0.85);
+}
