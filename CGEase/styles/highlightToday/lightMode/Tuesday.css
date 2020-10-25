@@ -1,0 +1,7 @@
+.timetable>tbody>tr>:nth-child(3) {
+    filter: saturate(1.5);
+}
+
+.timetable>tbody>tr>:not(:nth-child(3)) {
+    filter: saturate(0.3) !important;
+}

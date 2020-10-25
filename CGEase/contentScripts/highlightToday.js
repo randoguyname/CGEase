@@ -17,10 +17,10 @@ function ensureWeekday(text) { // Makes sure text is a weekday, not "Day 1" etc.
     })
 }
 
-function highlightToday(logMessage, proceedFunction, featureIndex) {
+function highlightToday(isDarkMode, logMessage, proceedFunction, featureIndex) {
     ensureWeekday(document.querySelector(".timetable-day-active").innerText)
         .then(day => { // Success
-            injectCSSFile(`styles/highlightToday/${day}.css`, logMessage, proceedFunction, featureIndex) // Inject the css
+            injectCSSFile(`styles/highlightToday/${(isDarkMode) ? "darkMode":"lightMode"}/${day}.css`, logMessage, proceedFunction, featureIndex) // Inject the css
         }, reason => { // Reject
             console.warn(`Could not highlight current day on timetable for reason '${reason}'`) // Warn the user
         })
