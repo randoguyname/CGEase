@@ -74,6 +74,9 @@ function showMusicLessons(table, isTimetablePage, newMusicIcon, logMessage, proc
             return
         }
         console.log("Obtained music lessons HTML")
+        console.log(response)
+        lessonsHTML = response[0]
+        status = response[1]
         if (status == 401) { //  If the user has been logged out of the intranet
             chrome.runtime.sendMessage({"queryType": "intranetLogin"}, function (success) { // Open a new tab to login to the intranet
                 if (success) {

@@ -20,6 +20,23 @@ chrome.runtime.onMessage.addListener(
         }
     }
 )
+/*
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        if (request.queryType == "getMusicLessons") {
+            chrome.tabs.create({url:"https://intranet.cgs.vic.edu.au/portal/musictimetable.asp"}, tab => {
+                chrome.tabs.onUpdated.addListener(function removeIntranetLoginTab(tabId, info) { // Every time *any* tab is updated
+                    if (tabId == tab.id && info.title != undefined) { // check if it is the tab that was created, and if it has been properly loaded
+                        success = !info.title.includes("401") // Check if 401 (Unauthorised) error occurs, ie. the user cancels the box
+                        chrome.runtime.sendMessage({queryType: "getMusicLessonsFromContentScript"}, lessonsArray => {
+                            sendResponse(lessonsArray)
+                        })
+                    }
+                })
+            })
+        }
+    }
+)*/
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {

@@ -1,4 +1,4 @@
-function getMusicLessons(lessonsDocument) {
+/*function getMusicLessons(lessonsDocument) {
     lessonsTable = lessonsDocument.querySelector("table").querySelector("table"); // Looks for a table inside a table
     linesArray = stringArray1dFromTable(lessonsTable, true, "My Timetable"); // get a 1d array of all the "innerText" values of the rows/lines
     lessonsArray = []
@@ -14,10 +14,10 @@ function getMusicLessons(lessonsDocument) {
     return lessonsArray;
 }
 
-chrome.extension.onRequest.addListener(
+chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        if(request.method == "getLessons"){
-            sendResponse({data: getMusicLessons(document), method: "getLessons"}); //same as innerText
+        if (request.queryType == "getMusicLessonsFromContentScript"){
+            sendResponse(getMusicLessons(document)); //same as innerText
         }
     }
-);
+);*/
