@@ -1,0 +1,47 @@
+:root {
+    --accent-color: #8053d1;
+    --accent-color-old: #5BA3D6;
+  }
+
+html, header, [style="color:rgb(255, 0, 0)"], .glyph-font.correct, .glyph-font.incorrect, .tick.ticked, canvas, img, .activity-title-region, textarea, .media-video-displayer__video-preview-container {
+    filter: invert(1);
+}
+
+[data-test-label="lessons"], .SubjectHeader__headerLink__3DKnm {
+    background-color: transparent !important;
+}
+
+a[data-test-label="lessons"]:hover {
+    background-color: rgba(0,0,0,0.5)
+}
+
+.media-video-displayer__video-preview-container {
+    background-color: transparent;
+}
+
+h3 strong span, .activity-item-label {
+    color: var(--accent-color) !important;
+    filter: invert(1) !important;
+}
+
+[data-test-label="key-question-badge"], [data-test-label*="submitActivity"], .SubjectHeader__SubjectHeaderContainer-onsbuc-0 {
+    background-color: var(--accent-color) !important;
+    filter: invert(1) !important;
+}
+
+.work-feedback-comment-box {
+    filter: hue-rotate(230) brightness(0.9)
+}
+
+[class*=SubjectHeader__SubjectLinkBlock] a {
+    background-color: black;
+}
+
+[data-test-label="avatar-image"] {
+    filter: invert(0)
+}
+
+[data-test-label="lessonHeader"] {
+    filter: invert(1) brightness(1.2);
+    border: none;
+}

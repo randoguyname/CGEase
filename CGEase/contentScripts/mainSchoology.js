@@ -1,11 +1,10 @@
-doSchoologyDarkMode = true
+chrome.storage.sync.get(Object.keys(featureDefaults), storage => {
+    document.addEventListener('DOMContentLoaded', function() {
+        if (storage.doSchoologyDarkMode) {
+            injectCSSFile("styles/schoologyDarkMode.css", "Enabled Schoology dark mode")
+        }
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    if (doSchoologyDarkMode) {
-        injectCSSFile("styles/schoologyDarkMode.css")
-    }
-
-    injectCSSFile("styles/doDisplay.css")
-    
-});
+        injectCSSFile("styles/doDisplay.css", "Displayed schoology")
+        
+    })
+})

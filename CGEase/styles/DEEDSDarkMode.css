@@ -1,21 +1,12 @@
-html {
+html, img, li.background-middle, .card-feature-image, .tab-bar, #notification-toggle-full, #profile-drop, iframe, input#search-field, a#right-menu-dock, .mejs__layers, .mejs__controls, #left-menu .logo, .account-drop.open, .results .information-list, ul.results.information-list, .infoBox, .infoBox [data-intent="ResultsStream"], .cover-photo, .card-class-image {
     -webkit-filter: invert(1);
 }
 
-img {
-    -webkit-filter: invert(1); /* double-invert as to revert to it's original state */
-}
-
-li.background-middle {
-    -webkit-filter: invert(1); /* double-invert as to revert to it's original state */
-}
-
-.card-feature-image {
-    -webkit-filter: invert(1); /* double-invert as to revert to it's original state */
+img[alt="Camberwell Grammar School"] {
+    filter: invert(1) brightness(1.5);
 }
 
 .tab-bar {
-    -webkit-filter: invert(1); /* double-invert as to do the thingy thing */
     background-color: #191b1f !important;
 }
 
@@ -28,10 +19,6 @@ li.background-middle {
     background-color: #191b1f;
 }
 
-#notification-toggle-full {
-    -webkit-filter: invert(1);
-}
-
 .tab-bar a:hover {
     background-color: #494c50 !important;
 }
@@ -39,52 +26,3 @@ li.background-middle {
 a.navthis {
     background-color: #22252a !important;
 }
-
-#profile-drop {
-    -webkit-filter: invert(1); /* triple-invert?? what the f-*/
-}
-
-iframe {
-    -webkit-filter: invert(1); 
-}
-
-input#search-field {
-    -webkit-filter: invert(1);
-}
-
-a#right-menu-dock {
-    -webkit-filter: invert(1);
-}
-
-.mejs__layers, .mejs__controls {
-    -webkit-filter: invert(1);
-}
-
-#left-menu .logo {
-    -webkit-filter: invert(1);
-}
-
-.account-drop.open {
-    -webkit-filter: invert(1);
-}
-
-.results .information-list {
-    -webkit-filter: invert(1);
-}
-
-ul.results.information-list {
-    -webkit-filter: invert(1);
-}
-
-.infoBox {
-    filter: invert(1);
-}
-
-.infoBox [data-intent="ResultsStream"] {
-    filter: invert(1);
-}
-
-.cover-photo {
-    -webkit-filter: invert(1);
-}
-

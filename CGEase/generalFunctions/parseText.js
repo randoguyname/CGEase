@@ -21,3 +21,18 @@ function parseDay(text) { // NOTE: assumes the lowest day found
         }
     }
 }
+
+function getMinutesFromTime(time) {
+    if ((time.endsWith("AM") && !time.startsWith("12")) 
+            || (time.startsWith("12") && time.endsWith("PM"))) { // if the time is AM (or 12 PM)
+        time = time.slice(0,-3) // Remove AM or PM, leaving "11:05"
+        time = (parseInt(time) * 60) + parseInt(time.slice(3)) // Calculate number of minutes since the beginning of the day
+    }
+
+    else if ((time.endsWith("PM") && !time.startsWith("12")) 
+                || (time.startsWith("12") && time.endsWith("AM"))) { // if time is PM (or 12 AM)
+        time = time.slice(0,-3) // Remove AM or PM, leaving "11:05"
+        time = ((parseInt(time)+12) * 60) + parseInt(time.slice(3)) // Calculate number of minutes since the beginning of the day
+    }
+    return time;
+}
