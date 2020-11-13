@@ -1,38 +1,15 @@
-html {
-    filter: invert(1);
-    background-color: white;
-}
-
-img {
-    filter: invert(1);
-}
-
-.mini-icon {
-    filter: invert(1)
+html, img, .mini-icon, .course-dashboard__card-lens-svg, [class*="Card-card-image"], [class*="icon"], 
+#left-nav #menu-s-main .menu .menu a span, .s-like-sentence span, iframe:not([src*="zoom"]), div#DocumentViewer  {
+    -webkit-filter: invert(1);
 }
 
 footer {
-    filter: invert(1)
+    filter: invert(1) contrast(2);
+    border-top: 1px black;
 }
 
-.course-dashboard__card-lens-svg {
-    filter: invert(1);
-}
-
-[class*="Card-card-image"] {
-    filter: invert(1);
-}
-
-[class*="icon"] {
-    filter: invert(1);
-}
-
-#left-nav #menu-s-main .menu .menu a span {
-    filter: invert(1);
-}
-
-.s-like-sentence span {
-    filter: invert(1);
+html {
+    background-color: black;
 }
 
 img.mathquill-formula {
@@ -43,10 +20,17 @@ img:not([class*="icon"]) {
     background-color: #ffffffa0;
 }
 
-iframe:not([src*="zoom"]) {
-    filter: invert(1)
+body::-webkit-scrollbar {
+    width: 2em;
+    background: black;
 }
 
-div#DocumentViewer {
-    filter: invert(1);
+body::-webkit-scrollbar-thumb {
+    background-color: #303030;
+    border-radius: 100px;
+    -webkit-box-shadow:inset 0px 0px 0px .5em #000;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #2a2a2a;
 }

@@ -1,0 +1,1 @@
+chrome.tabs.create({url: "https://deeds.cgs.vic.edu.au/settings/messages#cgease"});

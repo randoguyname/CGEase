@@ -3,7 +3,7 @@
   
     "name": "CGEase",
     "description": "Makes the life of CGS students slightly easier",
-    "version": "0.2",
+    "version": "0.3",
   
     "browser_action": {
         "default_popup": "popup/main.html"
@@ -29,6 +29,18 @@
                 "styles/noDisplay.css"
             ],
             "all_frames":true
+        },
+        {
+            "matches": [
+                "https://deeds.cgs.vic.edu.au/settings/messages*"
+            ],
+            "js": [
+                "constants/defaults.js",
+                "lang/en-AU.js",
+                "injectHTML/injectSettings.js",
+                "contentScripts/settingsPage.js"
+            ],
+            "all_frames": true
         },
         {
             "matches": [

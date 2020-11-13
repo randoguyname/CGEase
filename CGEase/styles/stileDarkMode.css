@@ -1,14 +1,37 @@
 :root {
     --accent-color: #8053d1;
     --accent-color-old: #5BA3D6;
+    --secondary-monotone: white;
   }
 
-html, header, [style="color:rgb(255, 0, 0)"], .glyph-font.correct, .glyph-font.incorrect, .tick.ticked, canvas, img, .activity-title-region, textarea, .media-video-displayer__video-preview-container {
-    filter: invert(1);
+html {
+    height: max-content;
+}
+
+html, header, [data-test-label="ToolboxView"], [style*="color:rgb"], .glyph-font.correct, .glyph-font.incorrect, .tick.ticked, canvas, img, .activity-title-region, textarea, .media-video-displayer__video-preview-container {
+    filter: invert(1); /* Basic Invert */
+}
+
+[style*="color:#"], a[class*=prevNext], div[class*="ActivityName"] a, h3 strong span, .activity-item-label { 
+    filter: invert(1) !important; /* Apply Accent Colors */
+    color: var(--accent-color) !important;
+}
+
+a[class*=prevNext], [class*=SubjectHeader__SubjectLinkBlock] a, html {
+    background-color: black; /* Background Color */
 }
 
 [data-test-label="lessons"], .SubjectHeader__headerLink__3DKnm {
     background-color: transparent !important;
+    color: var(--secondary-monotone) !important;
+}
+
+a[class*=prevNext], [class*=SubjectHeader__SubjectLinkBlock] a, html {
+    background-color: black;
+}
+
+[data-test-label*="default-prev-next-button"]::before {
+    background-color: inherit !important;
 }
 
 a[data-test-label="lessons"]:hover {
@@ -19,11 +42,6 @@ a[data-test-label="lessons"]:hover {
     background-color: transparent;
 }
 
-h3 strong span, .activity-item-label {
-    color: var(--accent-color) !important;
-    filter: invert(1) !important;
-}
-
 [data-test-label="key-question-badge"], [data-test-label*="submitActivity"], .SubjectHeader__SubjectHeaderContainer-onsbuc-0 {
     background-color: var(--accent-color) !important;
     filter: invert(1) !important;
@@ -31,10 +49,6 @@ h3 strong span, .activity-item-label {
 
 .work-feedback-comment-box {
     filter: hue-rotate(230) brightness(0.9)
-}
-
-[class*=SubjectHeader__SubjectLinkBlock] a {
-    background-color: black;
 }
 
 [data-test-label="avatar-image"] {

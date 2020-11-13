@@ -4,6 +4,7 @@ html, img, li.background-middle, .card-feature-image, .tab-bar, #notification-to
 
 img[alt="Camberwell Grammar School"] {
     filter: invert(1) brightness(1.5);
+    mix-blend-mode: lighten;
 }
 
 .tab-bar {

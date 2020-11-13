@@ -21,6 +21,7 @@ chrome.storage.sync.get(Object.keys(featureDefaults), storage => {
     features = [
         [injectCSSFile, storage.doChangeMusicLogo, ["styles/refontMusic.css", "Changed Music Logo"]],
         [injectCSSFile, storage.doDEEDSDarkMode, ["styles/DEEDSDarkMode.css", "Used DEEDS dark theme"]],
+        [injectCSSFile, storage.doDEEDSHideSelfView, ["styles/DEEDSHideSelfView.css", "Hid School Photo"]],
         [injectCSSFile, true, ["styles/doDisplay.css", "Displayed DEEDS"]],
         [showMusicLessons, storage.doShowMusicLessons && hasAnyTimetable, [timetable, isTimetablePage, storage.doChangeMusicLogo, "Displayed music lessons"]],
         [highlightToday, storage.doHighlightToday && isTimetablePage, [storage.doDEEDSDarkMode, "Highlighted Current Day"]],
