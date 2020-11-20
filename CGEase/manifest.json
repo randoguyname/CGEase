@@ -63,9 +63,6 @@
                 "constants/defaults.js",
                 "generalFunctions/injectCSS.js",
                 "contentScripts/mainSchoology.js"
-            ],
-            "css": [
-                "styles/noDisplay.css"
             ]
         },
         {

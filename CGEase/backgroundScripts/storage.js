@@ -12,4 +12,4 @@ function setDefaults() {
     })
 }
 
-setDefaults();
+chrome.runtime.onInstalled.addListener(setDefaults)

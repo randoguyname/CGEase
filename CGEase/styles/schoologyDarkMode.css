@@ -1,6 +1,16 @@
+:root {
+    --selection-color: pink;
+}
+
 html, img, .mini-icon, .course-dashboard__card-lens-svg, [class*="Card-card-image"], [class*="icon"], 
 #left-nav #menu-s-main .menu .menu a span, .s-like-sentence span, iframe:not([src*="zoom"]), div#DocumentViewer  {
     -webkit-filter: invert(1);
+}
+
+html::selection, img::selection, .mini-icon::selection, .course-dashboard__card-lens-svg::selection, [class*="Card-card-image"]::selection, [class*="icon"]::selection, 
+#left-nav #menu-s-main .menu .menu a span::selection, .s-like-sentence span::selection, iframe:not([src*="zoom"])::selection, div#DocumentViewer::selection {
+    color: inherit;
+    background-color: var(--selection-color);
 }
 
 footer {
