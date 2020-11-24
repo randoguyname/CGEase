@@ -26,6 +26,7 @@ chrome.storage.sync.get(Object.keys(featureDefaults), storage => {
         [showMusicLessons, storage.doShowMusicLessons && hasAnyTimetable, [timetable, isTimetablePage, storage.doChangeMusicLogo, "Displayed music lessons"]],
         [highlightToday, storage.doHighlightToday && isTimetablePage, [storage.doDEEDSDarkMode, "Highlighted Current Day"]],
         [insertTimetableBreaks, storage.doInsertTimetableBreaks && isTimetablePage, [timetable, "Inserted Timetable Breaks"]],
+        //[showPostMusicLessons, storage.doShowMusicLessons && hasAnyTimetable && storage.doInsertTimetableBreaks, [timetable, isTimetablePage, storage.doChangeMusicLogo, "Displayed Additional (Lunch/Recess) Music lessons"]]
         [roundPeriodTimes, storage.doRoundTimes && hasAnyTimetable, [timetable, "Rounded Period Times"]]
     ]
     

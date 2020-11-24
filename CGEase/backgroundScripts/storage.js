@@ -4,7 +4,7 @@ function setDefaults() {
     chrome.storage.sync.get(Object.keys(featureDefaults), storage => {
         storageChange = {}
         for (feature of Object.keys(featureDefaults)) {
-            if (!storage[feature]) {
+            if (storage[feature] == null) {
                 storageChange[feature] = featureDefaults[feature];
             }
         }
