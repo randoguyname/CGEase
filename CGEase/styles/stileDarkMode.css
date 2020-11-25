@@ -8,7 +8,7 @@ html {
     height: max-content;
 }
 
-html, header, [data-test-label="ToolboxView"], [style*="color:rgb"], .glyph-font.correct, .glyph-font.incorrect, .tick.ticked, canvas, img, .activity-title-region, textarea, .media-video-displayer__video-preview-container {
+html, header, [data-test-label="ToolboxView"], [style*="color:rgb"], .glyph-font.correct, .glyph-font.incorrect, .tick.ticked, canvas, img, .activity-title-region, textarea, .media-video-displayer__video-preview-container, video {
     filter: invert(1); /* Basic Invert */
 }
 
